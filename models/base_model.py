@@ -7,11 +7,25 @@ import json
 
 class BaseModel:
     """ defines all common attributes/methods for other classes """
-    def __init__(self):
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+    def __init__(self, *args, **kwargs):
+        if kwargs:
+            for key, value in kwargs.items():
+                
+                if key == 'updated_at': 
+                    # https://www.educative.io/edpresso/how-to-convert-a-string-to-a-date-in-python
+                    self.updated_at = datetime.strptime(value,
+                                                        '%Y-%m-%dT%H:%M:%S.%f')
+                elif key == 'created_at':
+                    self.created_at = datetime.strptime(value,
+                                                        '%Y-%m-%dT%H:%M:%S.%f')
 
+                else:
+                    if key != "__class__":
+                        setattr(self, key, value)
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.today()
+            self.updated_at = datetime.today()
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
         return ("[{}] ({}) {}".format(self.__class__.__name__,
