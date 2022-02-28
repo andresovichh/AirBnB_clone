@@ -30,7 +30,7 @@ class Filestorage:
     
     def save(self):
         """  serializes __objects to the JSON file (path: __file_path)"""
-        pass
+        json.dump(self.__objects__, self.__file_path)
         # from python to json
     
     def reload(self):
