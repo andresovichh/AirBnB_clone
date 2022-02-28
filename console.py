@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Here goes the documentation for the console module
+"""
 
 import cmd, sys
 #from bye import quit
