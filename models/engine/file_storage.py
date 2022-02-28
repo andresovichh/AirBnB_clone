@@ -17,8 +17,16 @@ class Filestorage:
 
     def new(self, obj):
         """ sets in __objects the obj with key <obj class name>.id"""
-        self.__objects = obj.__class__ + "." + obj.id
-        # algo con setattr
+        # First, get the object's class name followed bi "." and
+        # the id of the object. 
+        # ex: to store a BaseModel object with id=12121212,
+        #  the key will be BaseModel.12121212)
+
+        key = obj.__class__ + "." + obj.id
+        self.__objects[key] = obj
+        # Finally, it stores the object "obj" in self.__objects, at
+        # key previously generated. 
+
     
     def save(self):
         """  serializes __objects to the JSON file (path: __file_path)"""
