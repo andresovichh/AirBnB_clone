@@ -3,7 +3,7 @@
 import json
 from models.base_model import BaseModel
 
-class Filestorage(BaseModel):
+class Filestorage:
     """ Class that serializes instances to a JSON
     file and deserializes JSON files to instances"""
     
@@ -13,15 +13,17 @@ class Filestorage(BaseModel):
 
     def all(self):
         """ returns the dictionary __objects """
-        return self.__objects.__dict__
+        return self.__dict__
 
     def new(self, obj):
         """ sets in __objects the obj with key <obj class name>.id"""
-        algo con setattr
+        self.__objects = obj.__class__ + "." + obj.id
+        # algo con setattr
     
     def save(self):
         """  serializes __objects to the JSON file (path: __file_path)"""
-        from python to json
+        pass
+        # from python to json
     
     def reload(self):
         """ deserializes the JSON file to __objects 
