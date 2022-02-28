@@ -42,9 +42,11 @@ class Filestorage:
         otherwise, do nothing. If the file doesn
         t exist, no exception should be raised)"""
 
-        if self.__file_path is not None:
+        try:
             with open(self.__file_path, 'rw', encoding='utf-8') as f:
                 data = json.load(f)
+        except:
+            pass # If the file doesnt exist, no exception should be raised)
 
 
 
