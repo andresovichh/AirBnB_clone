@@ -7,9 +7,9 @@ class Filestorage(BaseModel):
     """ Class that serializes instances to a JSON
     file and deserializes JSON files to instances"""
     
-    def __init__(self, filepath, emptydict):
-        Filestorage.__file_path = filepath
-        Filestorage.__objects = emptydict
+    def __init__(self):
+        Filestorage.__file_path = "file.json"
+        Filestorage.__objects = {} # emptydict
 
     def all(self):
         """ returns the dictionary __objects """
@@ -28,6 +28,6 @@ class Filestorage(BaseModel):
         (only if the JSON file (__file_path) exists 
         otherwise, do nothing. If the file doesn
         t exist, no exception should be raised)"""
-        
+
 
 
