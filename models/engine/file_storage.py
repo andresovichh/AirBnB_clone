@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+from tkinter.messagebox import NO
 from models.base_model import BaseModel
 
 class Filestorage:
@@ -40,6 +41,10 @@ class Filestorage:
         (only if the JSON file (__file_path) exists 
         otherwise, do nothing. If the file doesn
         t exist, no exception should be raised)"""
+
+        if self.__file_path is not None:
+            with open(self.__file_path, 'rw', encoding='utf-8') as f:
+                data = json.load(f)
 
 
 
