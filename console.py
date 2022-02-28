@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 
 import cmd, sys
-from bye import quit
+#from bye import quit
 
 class HbnbShell(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
 
 
-    def do_quit(self, arg):
-        'Stop recording, close the turtle window and exit: BYE'
+    def do_quit(self, args):
+        'Quit the console'
         print('Thank you for using hbnb')
-        quit(self)
-    def do_EOF(self):
+        quit()
+    def do_EOF(self, args):
         """ EOF to exit"""
         quit()
     def close(self):
