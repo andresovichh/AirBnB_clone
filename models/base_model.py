@@ -40,6 +40,12 @@ class BaseModel:
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
         return ("[{}] ({}) {}".format(self.__class__.__name__,
                                       self.id, self.__dict__))
+    
+    #def defaultconverter(self):
+    #    if isinstance(self.updated_at, datetime.datetime):
+    #        return self.updated_at.__str__()
+    #    if isinstance(self.created_at, datetime.datetime):
+    #        return self.created_at.__str__()
 
     def save(self):
         """ updates the public instance attribute with the current datetime """
