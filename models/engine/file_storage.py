@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 
 import json
-from tkinter.messagebox import NO
 from models.base_model import BaseModel
 
-class Filestorage:
+class FileStorage:
     """ Class that serializes instances to a JSON
     file and deserializes JSON files to instances"""
     
     def __init__(self):
-        Filestorage.__file_path = "file.json"
-        Filestorage.__objects = {} # emptydict
+        FileStorage.__file_path = "file.json"
+        FileStorage.__objects = {} # emptydict
 
     def all(self):
         """ returns the dictionary __objects """
@@ -44,7 +43,8 @@ class Filestorage:
 
         try:
             with open(self.__file_path, 'rw', encoding='utf-8') as f:
-                data = json.load(f)
+               data = json.load(f)
+               return data
         except:
             pass # If the file doesnt exist, no exception should be raised)
 
