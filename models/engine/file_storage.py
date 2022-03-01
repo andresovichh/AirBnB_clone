@@ -27,7 +27,8 @@ class FileStorage:
         # Finally, it stores the object "obj" in self.__objects, at
         # key previously generated. 
 
-    
+
+
     def save(self):
         """  serializes __objects to the JSON file (path: __file_path)"""
         
@@ -39,8 +40,8 @@ class FileStorage:
         print(self.__objects)
         # json.dumps(self.__objects, indent=4, sort_keys=True, default=str)
         with open(self.__file_path, 'w+', encoding='utf-8') as f: 
-            json.dump(self.__objects, f, sort_keys=False, default=str)
-
+            # json.dump(self.__objects.__str__, f, default= BaseModel.defaultconverter(BaseModel))
+            json.dump(self.__objects.__str__, f)
             # The issue is that json.dump cant serialize a datetime object
             # that easily. It needs a way to represent it as a string. 
             # this solution almost works, but there is an extra pair of 
