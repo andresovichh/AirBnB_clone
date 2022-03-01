@@ -1,1 +1,1 @@
-{"BaseModel.83def0f3-03f4-488a-81e0-f70410414a73": 
+{"BaseModel.d4c8c0be-b905-45a9-896d-70355bae09b1": "[BaseModel] (d4c8c0be-b905-45a9-896d-70355bae09b1) {'id': 'd4c8c0be-b905-45a9-896d-70355bae09b1', 'created_at': datetime.datetime(2022, 3, 1, 9, 42, 45, 257701), 'updated_at': datetime.datetime(2022, 3, 1, 9, 42, 45, 257720), 'name': 'My_First_Model', 'my_number': 89}"}

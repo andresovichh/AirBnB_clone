@@ -30,11 +30,22 @@ class FileStorage:
     
     def save(self):
         """  serializes __objects to the JSON file (path: __file_path)"""
+        
+        
+        #  For some reason this returns: 
+        # TypeError: Object of type BaseModel is not JSON serializable
 
+
+        print(self.__objects)
+        # json.dumps(self.__objects, indent=4, sort_keys=True, default=str)
         with open(self.__file_path, 'w+', encoding='utf-8') as f: 
-            json.dump(self.__objects, f)
-        # from python to json
-    
+            json.dump(self.__objects, f, sort_keys=False, default=str)
+
+            # The issue is that json.dump cant serialize a datetime object
+            # that easily. It needs a way to represent it as a string. 
+            # this solution almost works, but there is an extra pair of 
+            # quotes at the end of the cat file.json ; echo ""
+            
     def reload(self):
         """ deserializes the JSON file to __objects 
         (only if the JSON file (__file_path) exists 
