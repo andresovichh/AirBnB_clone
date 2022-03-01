@@ -22,7 +22,7 @@ class FileStorage:
         # ex: to store a BaseModel object with id=12121212,
         #  the key will be BaseModel.12121212)
 
-        key = obj.__class__ + "." + obj.id
+        key = obj.__class__.__name__ +"."+ obj.id
         self.__objects[key] = obj
         # Finally, it stores the object "obj" in self.__objects, at
         # key previously generated. 
@@ -31,7 +31,7 @@ class FileStorage:
     def save(self):
         """  serializes __objects to the JSON file (path: __file_path)"""
 
-        with open(self.__file_path, 'rw', encoding='utf-8') as f: 
+        with open(self.__file_path, 'r+', encoding='utf-8') as f: 
             json.dump(self.__objects__, f)
         # from python to json
     
@@ -42,7 +42,7 @@ class FileStorage:
         t exist, no exception should be raised)"""
 
         try:
-            with open(self.__file_path, 'rw', encoding='utf-8') as f:
+            with open(self.__file_path, 'r+', encoding='utf-8') as f:
                data = json.load(f)
                return data
         except:

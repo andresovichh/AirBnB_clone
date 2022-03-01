@@ -8,7 +8,7 @@ __init__.py file located in models
 from datetime import datetime
 from uuid import uuid4
 import json
-from models import storage
+import models
 
 
 class BaseModel:
@@ -33,7 +33,7 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.today()
             self.updated_at = datetime.today()
-            storage.new(self)  # not sure if this is what 5 is
+            models.storage.new(self)  # not sure if this is what 5 is
             # asking for.
 
     def __str__(self):
@@ -44,7 +44,7 @@ class BaseModel:
     def save(self):
         """ updates the public instance attribute with the current datetime """
         self.updated_at = datetime.today()
-        storage.save(self)
+        models.storage.save()
         # second line should be calling the save method on
         # storage, which was imported from models
 
