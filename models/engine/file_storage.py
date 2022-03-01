@@ -31,8 +31,8 @@ class FileStorage:
     def save(self):
         """  serializes __objects to the JSON file (path: __file_path)"""
 
-        with open(self.__file_path, 'r+', encoding='utf-8') as f: 
-            json.dump(self.__objects__, f)
+        with open(self.__file_path, 'w+', encoding='utf-8') as f: 
+            json.dump(self.__objects, f)
         # from python to json
     
     def reload(self):
@@ -42,7 +42,7 @@ class FileStorage:
         t exist, no exception should be raised)"""
 
         try:
-            with open(self.__file_path, 'r+', encoding='utf-8') as f:
+            with open(self.__file_path, 'w+', encoding='utf-8') as f:
                data = json.load(f)
                return data
         except:
