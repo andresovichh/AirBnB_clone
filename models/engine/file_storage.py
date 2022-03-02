@@ -52,9 +52,12 @@ class FileStorage:
 
            #     json.dump(new_dict, f)
            #     f.write(',')
+
+           # for each item in self.__objects, made of a pair of key
+           # and value, turn the value to dict, and then dump it to
+           # json file
             json.dump(
-                {k: v.to_dict() for k, v in self.__objects.items()}, f
-                )
+                {k: v.to_dict() for k, v in self.__objects.items()}, f)
             # f.write(json.dumps(self.__objects))
             # The issue is that json.dump cant serialize a datetime object
             # that easily. It needs a way to represent it as a string. 
