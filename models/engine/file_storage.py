@@ -46,11 +46,15 @@ class FileStorage:
         # json.dumps(self.__objects, indent=4, sort_keys=True, default=str)
         new_dict = {}
         with open(self.__file_path, "a+", encoding='utf-8') as f: 
-            for obj in self.__objects.values():
-                key = obj.__class__.__name__ +"."+ obj.id
-                new_dict[key] = obj.to_dict()
+           # for obj in self.__objects.values():
+           #     key = obj.__class__.__name__ +"."+ obj.id
+           #     new_dict[key] = obj.to_dict()
 
-                json.dump(new_dict, f, indent= 4)
+           #     json.dump(new_dict, f)
+           #     f.write(',')
+            json.dump(
+                {k: v.to_dict() for k, v in self.__objects.items()}, f
+                )
             # f.write(json.dumps(self.__objects))
             # The issue is that json.dump cant serialize a datetime object
             # that easily. It needs a way to represent it as a string. 
@@ -64,11 +68,14 @@ class FileStorage:
         t exist, no exception should be raised)"""
 
         try:
-            with open(self.__file_path, "r", encoding='utf-8') as f:
-                data = json.load(f)
+            
+            with open(self.__file_path, 'r') as f:
+                self.__objects = {
+                    k: BaseModel(**v) for k, v in json.load(f).items()
+                    }
+                #self.__objects = json.load(f)
+        
 
-
-          
         except:
             pass # If the file doesnt exist, no exception should be raised)
 
