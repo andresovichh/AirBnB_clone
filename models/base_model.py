@@ -15,6 +15,11 @@ class BaseModel:
     """ defines all common attributes/methods for other classes """
     def __init__(self, *args, **kwargs):
         """ Initializing BaseModel """
+        self.id = str(uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
+        
+
         if kwargs:
             for key, value in kwargs.items():
 
@@ -30,12 +35,9 @@ class BaseModel:
                     if key != "__class__":
                         setattr(self, key, value)
         else:
-            self.id = str(uuid4())
-            self.created_at = datetime.today()
-            self.updated_at = datetime.today()
-            models.storage.new(self)  # not sure if this is what 5 is
-            # asking for.
-
+            models.storage.new(self)
+                 # not sure if this is what 5 is
+        # asking for.
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
         return ("[{}] ({}) {}".format(self.__class__.__name__,

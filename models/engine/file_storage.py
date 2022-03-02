@@ -14,7 +14,7 @@ class FileStorage:
 
     def all(self):
         """ returns the dictionary __objects """
-        return self.__dict__
+        return self.__objects
 
     def new(self, obj):
         """ sets in __objects the obj with key <obj class name>.id"""
@@ -45,7 +45,7 @@ class FileStorage:
         #        print(f"{key} : {self.__objects[key]}")
         # json.dumps(self.__objects, indent=4, sort_keys=True, default=str)
         new_dict = {}
-        with open(self.__file_path, 'w+', encoding='utf-8') as f: 
+        with open(self.__file_path, "a", encoding='utf-8') as f: 
             for obj in self.__objects.values():
                 key = obj.__class__.__name__ +"."+ obj.id
                 new_dict[key] = obj.to_dict()
@@ -64,9 +64,10 @@ class FileStorage:
         t exist, no exception should be raised)"""
 
         try:
-            with open(self.__file_path, 'r', encoding='utf-8') as f:
-               data = json.load(f)
-               return data
+            with open(self.__file_path, "r", encoding='utf-8') as f:
+                return json.load(f)
+
+
           
         except:
             pass # If the file doesnt exist, no exception should be raised)
