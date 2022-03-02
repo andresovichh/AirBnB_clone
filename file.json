@@ -34,4 +34,22 @@
         "my_number": 89,
         "__class__": "BaseModel"
     }
+}{
+    "BaseModel.cf039c93-7298-4f2e-8dac-6da44eb1767f": {
+        "id": "cf039c93-7298-4f2e-8dac-6da44eb1767f",
+        "created_at": "2022-03-02T13:45:34.673633",
+        "updated_at": "2022-03-02T13:45:34.673652",
+        "name": "My_First_Model",
+        "my_number": 89,
+        "__class__": "BaseModel"
+    }
+}{
+    "BaseModel.c3f8cb3f-7476-4d24-816f-029ca5eb4902": {
+        "id": "c3f8cb3f-7476-4d24-816f-029ca5eb4902",
+        "created_at": "2022-03-02T13:45:49.429584",
+        "updated_at": "2022-03-02T13:45:49.429611",
+        "name": "My_First_Model",
+        "my_number": 89,
+        "__class__": "BaseModel"
+    }
 }
