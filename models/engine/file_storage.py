@@ -37,11 +37,11 @@ class FileStorage:
         # TypeError: Object of type BaseModel is not JSON serializable
 
 
-        print(self.__objects)
+        # print(self.__objects)
         # json.dumps(self.__objects, indent=4, sort_keys=True, default=str)
         with open(self.__file_path, 'w+', encoding='utf-8') as f: 
             # json.dump(self.__objects.__str__, f, default= BaseModel.defaultconverter(BaseModel))
-            json.dump(self.__objects.__str__, f)
+            json.dump(self.__objects, f, default=str)
             # The issue is that json.dump cant serialize a datetime object
             # that easily. It needs a way to represent it as a string. 
             # this solution almost works, but there is an extra pair of 
