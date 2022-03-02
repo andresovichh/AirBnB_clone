@@ -2,14 +2,15 @@
 
 import json
 from models.base_model import BaseModel
+from datetime import datetime
 
 class FileStorage:
     """ Class that serializes instances to a JSON
     file and deserializes JSON files to instances"""
     
     def __init__(self):
-        FileStorage.__file_path = "file.json"
-        FileStorage.__objects = {} # emptydict
+        self.__file_path = "file.json"
+        self.__objects = {} # emptydict
 
     def all(self):
         """ returns the dictionary __objects """
@@ -37,13 +38,20 @@ class FileStorage:
         # TypeError: Object of type BaseModel is not JSON serializable
 
 
-        print(self.__objects)
-        for key in self.__objects:
-            print(f"{key} : {self.__objects[key]}")
+        #print(self.__objects)
+        #for key in self.__objects:
+        #    if key == "created_at" or key == "updated_at":
+        #        self.__objects[key] = self.__objects[key].isoformat()
+        #        print(f"{key} : {self.__objects[key]}")
         # json.dumps(self.__objects, indent=4, sort_keys=True, default=str)
+        new_dict = {}
         with open(self.__file_path, 'w+', encoding='utf-8') as f: 
-            # json.dump(self.__objects.__str__, f, default= BaseModel.defaultconverter(BaseModel))
-            f.write(json.dumps(self.__objects))
+            for obj in self.__objects.values():
+                key = obj.__class__.__name__ +"."+ obj.id
+                new_dict[key] = obj.to_dict()
+
+                json.dump(new_dict, f)
+            # f.write(json.dumps(self.__objects))
             # The issue is that json.dump cant serialize a datetime object
             # that easily. It needs a way to represent it as a string. 
             # this solution almost works, but there is an extra pair of 
@@ -56,9 +64,10 @@ class FileStorage:
         t exist, no exception should be raised)"""
 
         try:
-            with open(self.__file_path, 'w+', encoding='utf-8') as f:
+            with open(self.__file_path, 'r', encoding='utf-8') as f:
                data = json.load(f)
                return data
+          
         except:
             pass # If the file doesnt exist, no exception should be raised)
 
