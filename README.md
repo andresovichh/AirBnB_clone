@@ -5,11 +5,11 @@
 This team proyect is the first step to create our clone of the AirBnB Website.
 This first part is the **Console**, when we are going to manage objects.
 
-## :page_with_curl:  How it Works? :page_with_curl:
+## :construction_worker:  How it Works? :construction_worker:
 
 To start the console you can do it in two ways, interactive and non-interactive mode.
 
-#### Interactive Mode
+#### Interactive Mode (type ./console.py)
 ```
 $ ./console.py
 (hbnb) help
@@ -24,7 +24,7 @@ EOF  help  quit
 $
 ```
 
-#### Non-Interactive Mode
+#### Non-Interactive Mode (type echo ***command*** | ./console.py)
 ```
 $ echo "help" | ./console.py
 (hbnb)
@@ -46,3 +46,8 @@ EOF  help  quit
 (hbnb) 
 $
 ```
+
+### Basic Commands
+
+
+
