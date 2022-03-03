@@ -4,6 +4,7 @@ Here goes the documentation for the console module
 """
 from models.base_model import BaseModel
 import cmd, sys
+import readline
 #from bye import quit
 
 class HBNBCommand(cmd.Cmd):
@@ -33,7 +34,8 @@ class HBNBCommand(cmd.Cmd):
         """ Creates a new instance of BaseModel,
         saves it to the json file and prints the id
         Ex. $ create BaseModel"""
-        data = sys.argv[0]
+        command = arg.split()
+        foo_call = command[0]
         new_inst = BaseModel()
         print(BaseModel.id)
     
