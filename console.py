@@ -5,11 +5,15 @@ Here goes the documentation for the console module
 from models.base_model import BaseModel
 import cmd, sys
 import readline
+from models import storage
+from models.engine.file_storage import FileStorage
 #from bye import quit
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
+
+    all_classes = {"BaseModel": BaseModel, "something": FileStorage}
 
 
     def do_quit(self, args):
@@ -35,10 +39,15 @@ class HBNBCommand(cmd.Cmd):
         saves it to the json file and prints the id
         Ex. $ create BaseModel"""
         command = arg.split()
-        foo_call = command[0]
-        new_inst = BaseModel()
-        print(BaseModel.id)
-    
+        print(command)
+        print(len(command))
+        name = command[0]
+        if not command[0]:
+            print("** class name missing **\n")
+        if name not in self.all_classes:
+            print("** class doesn't exist **")
+
+
     def show(self):
         """ Prints the string representation of 
         an instance based on the class name 
