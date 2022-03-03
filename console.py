@@ -13,6 +13,9 @@ import json
 
 
 class HBNBCommand(cmd.Cmd):
+    """ This is the HBNB command line interpreter
+    definiion"""
+
     prompt = '(hbnb) '
     file = None
 
@@ -30,6 +33,7 @@ class HBNBCommand(cmd.Cmd):
         quit()
 
     def close(self):
+        """ close method definition"""
         if self.file:
             self.file.close()
             self.file = None

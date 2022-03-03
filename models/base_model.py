@@ -18,7 +18,6 @@ class BaseModel:
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
-        
 
         if kwargs:
             for key, value in kwargs.items():
@@ -36,14 +35,15 @@ class BaseModel:
                         setattr(self, key, value)
         else:
             models.storage.new(self)
-                 # not sure if this is what 5 is
+        # not sure if this is what 5 is
         # asking for.
+
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
         return ("[{}] ({}) {}".format(self.__class__.__name__,
                                       self.id, self.__dict__))
-    
-    #def defaultconverter(self):
+
+    # def defaultconverter(self):
     #    if isinstance(self.updated_at, datetime.datetime):
     #        return self.updated_at.__str__()
     #    if isinstance(self.created_at, datetime.datetime):
