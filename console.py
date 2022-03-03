@@ -7,6 +7,7 @@ import cmd, sys
 import readline
 from models import storage
 from models.engine.file_storage import FileStorage
+import json
 #from bye import quit
 
 class HBNBCommand(cmd.Cmd):
@@ -124,9 +125,11 @@ class HBNBCommand(cmd.Cmd):
             if command[0] not in self.all_classes:
                 print("** class doesn't exist **")
             else:
-                print(storage)
+                all_objects = storage.all()
+                json.load(all_objects)
         if not arg:
             all_objects = storage.all()
+            json.load(storage.__file_path)
             
 
     
