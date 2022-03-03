@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
                 return
             else:
                 objects = storage.all()
-                objects[find].remove()    
+                del objects[find]    
   
 
 
