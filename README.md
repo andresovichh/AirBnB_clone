@@ -1,2 +1,2 @@
-![hBnB](DIEGO/hbnblogo.png)
+![hBnB](img/hbnblogo.png)
 ## AirBnB Clone Proyect
