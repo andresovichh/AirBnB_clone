@@ -15,6 +15,8 @@ class HBNBCommand(cmd.Cmd):
     file = None
 
     all_classes = {"BaseModel": BaseModel, "something": FileStorage}
+    attributes = ["updated_at", "created_at", "id"]
+    specs = ["\'", "\""]
 
 
     def do_quit(self, args):
@@ -145,12 +147,75 @@ class HBNBCommand(cmd.Cmd):
             
 
     
-    def update(self):
+    def do_update(self, arg):
         """
         Updates an instance based on the class name and id 
         by adding or updating attribute (save the change into the JSON file). 
         Ex: $ update BaseModel 1234-1234-1234 email "aibnb@mail.com"
         """
+        command = arg.split()
+        if not arg:
+            print("** class name missing **")
+        elif command[0] not in self.all_classes:
+            print("** class doesn't exist **")
+            return
+        elif len(command) == 1:
+            print("** instance id missing **")
+            return
+        elif command[0] + '.' + command[1] not in storage.all():
+            print("** no instance found **")
+            return
+        elif len(command) == 2:
+            print("** attribute name missing **")
+            return
+        elif len(command) == 3:
+            print("** value missing **")
+            return
+        else:
+            obj = storage.all()
+            key = command[0] + '.' + command[1]
+
+            if key in obj:
+                if command[2] not in self.attributes:
+                    if command[3][0] in self.specs and command[3][-1] in self.specs:
+                        setattr(obj[key], command[2], str(command[3][1: -1]))
+                    else:
+                        setattr(obj[key], command[2], str(command[3]))
+                    storage.save()
+                else:
+                    print("** no instance found **")
+                    return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
