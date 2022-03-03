@@ -20,9 +20,11 @@ class HBNBCommand(cmd.Cmd):
         'Quit command to exit the program'
         print('Thank you for using hbnb')
         quit()
+
     def do_EOF(self, args):
         """ EOF to exit"""
         quit()
+
     def close(self):
         if self.file:
             self.file.close()
@@ -59,14 +61,13 @@ class HBNBCommand(cmd.Cmd):
                 print(new_inst.id)
                 new_inst.save()
 
-
     def do_show(self, arg):
         """ Prints the string representation of 
         an instance based on the class name 
         and id. Ex: $ show BaseModel 1234-1234-1234"""
         if not arg:
             print("** class name missing **")
-        
+
         else:
             command = arg.split()
             class_name = command[0]
@@ -80,12 +81,36 @@ class HBNBCommand(cmd.Cmd):
             else:
                 objects = storage.all()
                 print(objects[find])
-    def destroy(self):
+
+    def do_destroy(self, arg):
         """
          Deletes an instance based on the class name 
          and id (save the change into 
          the JSON file). Ex: $ destroy BaseModel 1234-1234-1234
         """
+        if not arg:
+            print("** class name missing **")
+
+        else:
+            command = arg.split()
+            class_name = command[0]
+            if class_name not in self.all_classes:
+                print("** class doesn't exist **")
+                return
+            if len(command) < 2:
+                print("** instance id missing **")
+                return
+            find = command[0]+"."+command[1]
+            if find not in storage.all():
+                print("** no instance found **")
+                return
+            else:
+                objects = storage.all()
+                objects[find].remove()    
+  
+
+
+
     
     def all(self):
         """
