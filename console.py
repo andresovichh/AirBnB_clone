@@ -74,14 +74,15 @@ class HBNBCommand(cmd.Cmd):
             class_name = command[0]
             if class_name not in self.all_classes:
                 print("** class doesn't exist **")
-            if len(command) < 2:
+            elif len(command) == 1:
                 print("** instance id missing **")
-            find = command[0]+"."+command[1]
-            if find not in storage.all():
-                print("** no instance found **")
             else:
-                objects = storage.all()
-                print(objects[find])
+                find = command[0]+"."+command[1]
+                if find not in storage.all():
+                    print("** no instance found **")
+                else:
+                    objects = storage.all()
+                    print(objects[find])
 
     def do_destroy(self, arg):
         """
@@ -122,14 +123,25 @@ class HBNBCommand(cmd.Cmd):
         """
         if arg:
             command = arg.split()
+            class_name = command[0]
             if command[0] not in self.all_classes:
                 print("** class doesn't exist **")
             else:
+                lst_w_classnme = []
                 all_objects = storage.all()
-                json.load(all_objects)
+                for k in all_objects:
+                    cls_nme = k.split(".")
+                    if cls_nme[0] == class_name:
+                        lst_w_classnme.append(str(all_objects[k]))
+                print(lst_w_classnme)
+
         if not arg:
             all_objects = storage.all()
-            json.load(storage.__file_path)
+            new_list = []
+
+            for k in all_objects:
+                new_list.append(str(all_objects[k]))
+            print(new_list)
             
 
     
