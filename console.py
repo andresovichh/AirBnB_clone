@@ -38,14 +38,26 @@ class HBNBCommand(cmd.Cmd):
         """ Creates a new instance of BaseModel,
         saves it to the json file and prints the id
         Ex. $ create BaseModel"""
-        command = arg.split()
-        print(command)
-        print(len(command))
-        name = command[0]
-        if not command[0]:
-            print("** class name missing **\n")
-        if name not in self.all_classes:
-            print("** class doesn't exist **")
+        # command = arg.split()
+        # name = command[0]
+        # 1. Check if class name was passed to create foo
+        if not arg:
+            print("** class name missing **")
+        else:
+            # 2. spit the args
+            command = arg.split()
+            name = command[0]
+            if name not in self.all_classes:
+                # 3. Check if the given class is a 
+                # real one
+                print("** class doesn't exist **")
+            else:
+                # 4. if class is real, do as asked.
+                # create new instance, print it's id
+                # and save it
+                new_inst = self.all_classes[name]()
+                print(new_inst.id)
+                new_inst.save()
 
 
     def show(self):
