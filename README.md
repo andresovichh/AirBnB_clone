@@ -47,7 +47,26 @@ EOF  help  quit
 $
 ```
 
-### Basic Commands
+### :speech_balloon: Basic Commands :speech_balloon:
+The bacis commands to use the console are:
+
+| Command | Description |
+| ------- | ----------- |
+| ***quit*** | Exit the program |
+| ***help*** | See available commands |
+
+### :speech_balloon: Commands :speech_balloon:
+| Command | Description |
+| ------- | ----------- |
+| ***create*** **<class>** | Creates a new instance of class and prints id |
+| ***show*** **<class>** **<id>** | Prints the string representation of an instance |
+| ***destroy*** **<class>** **<id>** | Prints the string representation |
+| ***all*** **<class>** | Prints all string representation of all instances based or not on the class name |
+| ***update*** **<class>** **<id>** **<attribute>** | Updates an instance based on the class name and id by adding or updating attribute |
+
+
+
+
 
 
 
