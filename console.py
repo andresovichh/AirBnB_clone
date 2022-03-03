@@ -60,11 +60,26 @@ class HBNBCommand(cmd.Cmd):
                 new_inst.save()
 
 
-    def show(self):
+    def do_show(self, arg):
         """ Prints the string representation of 
         an instance based on the class name 
         and id. Ex: $ show BaseModel 1234-1234-1234"""
-    
+        if not arg:
+            print("** class name missing **")
+        
+        else:
+            command = arg.split()
+            class_name = command[0]
+            if class_name not in self.all_classes:
+                print("** class doesn't exist **")
+            if len(command) < 2:
+                print("** instance id missing **")
+            find = command[0]+"."+command[1]
+            if find not in storage.all():
+                print("** no instance found **")
+            else:
+                objects = storage.all()
+                print(objects[find])
     def destroy(self):
         """
          Deletes an instance based on the class name 
