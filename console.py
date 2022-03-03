@@ -106,17 +106,29 @@ class HBNBCommand(cmd.Cmd):
                 return
             else:
                 objects = storage.all()
-                del objects[find]    
+                del objects[find]
+                # https://www.geeksforgeeks.org/python-del-to-delete-objects/
+                storage.save()   
   
 
 
 
     
-    def all(self):
+    def do_all(self, arg):
         """
         Prints all string representation of all instances 
         based or not on the class name. Ex: $ all BaseModel or $ all
         """
+        if arg:
+            command = arg.split()
+            if command[0] not in self.all_classes:
+                print("** class doesn't exist **")
+            else:
+                print(storage)
+        if not arg:
+            all_objects = storage.all()
+            
+
     
     def update(self):
         """
