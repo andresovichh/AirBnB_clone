@@ -3,6 +3,7 @@
 import json
 from models.base_model import BaseModel
 from datetime import datetime
+from models.user import User
 
 class FileStorage:
     """ Class that serializes instances to a JSON
@@ -68,15 +69,18 @@ class FileStorage:
         """ deserializes the JSON file to __objects 
         (only if the JSON file (__file_path) exists 
         otherwise, do nothing. If the file doesn
-        t exist, no exception should be raised)"""
+        t exist, no exception should be raisedi)"""
+
+        classes = {'BaseModel': BaseModel, 'User': User}
 
         try:
             
             with open(self.__file_path, 'r') as f:
-                self.__objects = {
-                    k: BaseModel(**v) for k, v in json.load(f).items()
-                    }
-                #self.__objects = json.load(f)
+                obj = json.load(f)
+                for keys, values in obj.items():
+                    tmp = keys.split('.')
+                    new = classes[tmp[0]](**values)
+                    self.new(new)
         
 
         except:
