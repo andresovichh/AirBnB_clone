@@ -3,12 +3,14 @@
 Here goes the documentation for the console module
 """
 from models.base_model import BaseModel
-import cmd, sys
+import cmd
+import sys
 import readline
 from models import storage
 from models.engine.file_storage import FileStorage
 import json
-#from bye import quit
+# from bye import quit
+
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
@@ -17,7 +19,6 @@ class HBNBCommand(cmd.Cmd):
     all_classes = {"BaseModel": BaseModel, "something": FileStorage}
     attributes = ["updated_at", "created_at", "id"]
     specs = ["\'", "\""]
-
 
     def do_quit(self, args):
         'Quit command to exit the program'
@@ -53,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
             command = arg.split()
             name = command[0]
             if name not in self.all_classes:
-                # 3. Check if the given class is a 
+                # 3. Check if the given class is a
                 # real one
                 print("** class doesn't exist **")
             else:
@@ -65,8 +66,8 @@ class HBNBCommand(cmd.Cmd):
                 new_inst.save()
 
     def do_show(self, arg):
-        """ Prints the string representation of 
-        an instance based on the class name 
+        """ Prints the string representation of
+        an instance based on the class name
         and id. Ex: $ show BaseModel 1234-1234-1234"""
         if not arg:
             print("** class name missing **")
@@ -88,8 +89,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """
-         Deletes an instance based on the class name 
-         and id (save the change into 
+         Deletes an instance based on the class name
+         and id (save the change into
          the JSON file). Ex: $ destroy BaseModel 1234-1234-1234
         """
         if not arg:
@@ -112,15 +113,11 @@ class HBNBCommand(cmd.Cmd):
                 objects = storage.all()
                 del objects[find]
                 # https://www.geeksforgeeks.org/python-del-to-delete-objects/
-                storage.save()   
-  
+                storage.save()
 
-
-
-    
     def do_all(self, arg):
         """
-        Prints all string representation of all instances 
+        Prints all string representation of all instances
         based or not on the class name. Ex: $ all BaseModel or $ all
         """
         if arg:
@@ -144,13 +141,11 @@ class HBNBCommand(cmd.Cmd):
             for k in all_objects:
                 new_list.append(str(all_objects[k]))
             print(new_list)
-            
 
-    
     def do_update(self, arg):
         """
-        Updates an instance based on the class name and id 
-        by adding or updating attribute (save the change into the JSON file). 
+        Updates an instance based on the class name and id
+        by adding or updating attribute (save the change into the JSON file).
         Ex: $ update BaseModel 1234-1234-1234 email "aibnb@mail.com"
         """
         command = arg.split()
@@ -177,7 +172,8 @@ class HBNBCommand(cmd.Cmd):
 
             if key in obj:
                 if command[2] not in self.attributes:
-                    if command[3][0] in self.specs and command[3][-1] in self.specs:
+                    if command[3][0] in self.specs \
+                       and command[3][-1] in self.specs:
                         setattr(obj[key], command[2], str(command[3][1: -1]))
                     else:
                         setattr(obj[key], command[2], str(command[3]))
@@ -185,37 +181,6 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     print("** no instance found **")
                     return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
