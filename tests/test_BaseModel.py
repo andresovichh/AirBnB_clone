@@ -42,6 +42,25 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str(str_class), string)
     
     def test_save(self):
-        """ Check if save correctly updates attribute"""
+        """ Check if save correctly updates attribute
+        to second and minute"""
         created = BaseModel().created_at
-        self.assertEqual(created, datetime.today())
+        self.assertEqual(created.second, datetime.today().second)
+        self.assertEqual(created.minute, datetime.today().minute)
+    
+    def test_class_name(self):
+        """ check if model class name is ok"""
+        name = BaseModel()
+        self.assertEqual(type(name).__name__, "BaseModel")
+    
+    def test_id_print(self):
+        """ chek if correct len id"""
+        my_model = BaseModel()
+        name = "My_First_Model"
+        my_model.my_number = 89
+        self.assertEqual(len(my_model.id), 36)
+    
+    # def test_nonexistant_class(self):
+    #     """ check for non existing class"""
+    #    my_model = something()
+    #    self
