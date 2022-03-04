@@ -9,7 +9,7 @@ import os
 from datetime import datetime
 
 
-class TestBase(unittest.TestCase):
+class TestFilestorage(unittest.TestCase):
     """ initial test class"""
     # 1. Test if documentation present
     def test_documentation(self):
