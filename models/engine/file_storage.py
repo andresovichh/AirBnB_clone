@@ -74,7 +74,7 @@ class FileStorage:
         otherwise, do nothing. If the file doesn
         t exist, no exception should be raisedi)"""
 
-        classes = {'BaseModel': BaseModel, 'User': User,
+        classes = {'BaseModel': BaseModel, "User": User,
                    "State": State, "City": City,
                    "Amenity": Amenity, "Place": Place, "Review": Review}
 
