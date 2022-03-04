@@ -6,9 +6,11 @@ __init__.py file located in models
 
  """
 
+import json
 from uuid import uuid4
 import models
 from datetime import datetime
+
 
 class BaseModel:
     """ defines all common attributes/methods for other classes """
