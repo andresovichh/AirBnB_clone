@@ -12,7 +12,6 @@ from uuid import uuid4
 import models
 
 
-
 class BaseModel:
     """ defines all common attributes/methods for other classes """
     def __init__(self, *args, **kwargs):
@@ -39,8 +38,8 @@ class BaseModel:
 
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
-        return "[{:s}] ({:s}) {}".format(self.__class__.__name__,
-                                          self.id, self.__dict__)
+        return "\t[{}] ({}) {}".format(self.__class__.__name__,
+                                       self.id, self.__dict__)
 
     def save(self):
         """ updates the public instance attribute with the current datetime """
