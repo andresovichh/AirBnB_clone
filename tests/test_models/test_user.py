@@ -4,7 +4,6 @@ from models.user import User
 import unittest
 
 
-
 class Test_User(unittest.TestCase):
     """ Test State Class """
 
