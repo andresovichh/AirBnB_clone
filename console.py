@@ -9,6 +9,7 @@ import readline
 from models import storage
 from models.engine.file_storage import FileStorage
 import json
+from models.user import User
 # from bye import quit
 
 
@@ -19,7 +20,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
 
-    all_classes = {"BaseModel": BaseModel, "something": FileStorage}
+    all_classes = {"BaseModel": BaseModel, "FileStorage": FileStorage, "User": User}
     attributes = ["updated_at", "created_at", "id"]
     specs = ["\'", "\""]
 
