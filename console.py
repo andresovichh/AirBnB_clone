@@ -20,7 +20,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
 
-    all_classes = {"BaseModel": BaseModel, "FileStorage": FileStorage, "User": User}
+    all_classes = {"BaseModel": BaseModel, "FileStorage": FileStorage,
+                   "User": User}
     attributes = ["updated_at", "created_at", "id"]
     specs = ["\'", "\""]
 
