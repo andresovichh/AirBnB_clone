@@ -4,6 +4,7 @@
 
 import json
 import unittest
+from unittest.mock import Base
 from models.base_model import BaseModel
 import os
 
@@ -31,7 +32,10 @@ class TestBase(unittest.TestCase):
         self.assertTrue(len(BaseModel.to_dict.__doc__) > 0)
 
     # 2. Test if __str__ method prints as expected
-
+class TestBaseModel(unittest.TestCase):
+    """ Tests for the BaseModel Class"""
     def test__str__(self):
         """ test if __str__ method prints as expected"""
-        
+        str_class = BaseModel()
+        string = "[BaseModel] ({}) {}".format(str_class.id, str_class.__dict__)
+        self.assertEqual(str(str_class), string)
