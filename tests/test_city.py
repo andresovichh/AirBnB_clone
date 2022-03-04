@@ -11,5 +11,3 @@ class Test_City(unittest.TestCase):
         """ Test not a single character """
         self.assertEqual(type(City().name), str)
         """ Test id """
-        self.
-
