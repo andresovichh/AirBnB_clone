@@ -11,3 +11,11 @@ class Test_City(unittest.TestCase):
         """ Test not a single character """
         self.assertEqual(type(City().name), str)
         """ Test id """
+    def test_documentation(self):
+        """documentation"""
+
+        self.assertTrue(len(City.__doc__) > 0)
+    def test_documentation(self):
+        """documentation"""
+
+        self.assertTrue(len(City.__init__.__doc__) > 0)
