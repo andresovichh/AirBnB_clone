@@ -10,3 +10,11 @@ class Test_State(unittest.TestCase):
     def test_name_string(self):
         """ Test not a single character """
         self.assertEqual(type(State().name), str)
+    def test_documentation(self):
+        """documentation"""
+
+        self.assertTrue(len(State.__doc__) > 0)
+    def test_documentation(self):
+        """documentation"""
+
+        self.assertTrue(len(State.__init__.__doc__) > 0)
