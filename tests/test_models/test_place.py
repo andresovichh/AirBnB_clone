@@ -23,15 +23,3 @@ class Test_Amenity(unittest.TestCase):
         self.assertTrue(len(Amenity.__init__.__doc__) > 0)
 
 
-class Test_Review(unittest.TestCase):
-    """ Test State Class """
-
-    def test_documentation(self):
-        """documentation"""
-
-        self.assertTrue(len(Review.__doc__) > 0)
-
-    def test_documentation(self):
-        """documentation"""
-
-        self.assertTrue(len(Review.__init__.__doc__) > 0)
