@@ -23,7 +23,6 @@ class BaseModel:
             for key, value in kwargs.items():
 
                 if key == 'updated_at':
-                    # https://www.educative.io/edpresso/how-to-convert-a-string-to-a-date-in-python
                     self.updated_at = datetime.strptime(value,
                                                         '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == 'created_at':
