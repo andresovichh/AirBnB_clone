@@ -35,26 +35,16 @@ class BaseModel:
                         setattr(self, key, value)
         else:
             models.storage.new(self)
-        # not sure if this is what 5 is
-        # asking for.
 
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
         return ("[{}] ({}) {}".format(self.__class__.__name__,
                                       self.id, self.__dict__))
 
-    # def defaultconverter(self):
-    #    if isinstance(self.updated_at, datetime.datetime):
-    #        return self.updated_at.__str__()
-    #    if isinstance(self.created_at, datetime.datetime):
-    #        return self.created_at.__str__()
-
     def save(self):
         """ updates the public instance attribute with the current datetime """
         self.updated_at = datetime.today()
         models.storage.save()
-        # second line should be calling the save method on
-        # storage, which was imported from models
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values of
