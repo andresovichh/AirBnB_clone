@@ -24,8 +24,7 @@ class HBNBCommand(cmd.Cmd):
     specs = ["\'", "\""]
 
     def do_quit(self, args):
-        'Quit command to exit the program'
-        print('Thank you for using hbnb')
+        """ Quit command to exit the program """
         quit()
 
     def do_EOF(self, args):
