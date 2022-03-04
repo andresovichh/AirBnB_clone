@@ -5,11 +5,11 @@ PLEASE CHECK THAT: storage is instanciated at
 __init__.py file located in models
 
  """
-from datetime import datetime
-from uuid import uuid4
-import json
-import models
 
+import json
+from uuid import uuid4
+import models
+from datetime import datetime
 
 class BaseModel:
     """ defines all common attributes/methods for other classes """
