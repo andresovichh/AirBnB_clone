@@ -43,6 +43,7 @@ class TestFilestorage(unittest.TestCase):
 
         self.assertTrue(len(FileStorage.reload.__doc__) > 0)
 
+
 class TestCodeFormat(unittest.TestCase):
     def test_pep8_conformance(self):
         # """Test that we conform to PEP8."""
@@ -51,11 +52,14 @@ class TestCodeFormat(unittest.TestCase):
         # print(result)
         # self.assertEqual(result.total_errors, 0,
         #                  "Found code style errors (and warnings).")
-        # https://pep8.readthedocs.io/en/release-1.7.x/intro.html
-        fchecker = pep8.Checker('models/engine/file_storage.py', show_source=True)
+        # https://pep8.readthedocs.io/en
+        # /release-1.7.x/intro.html
+        fchecker = pep8.Checker('models/engine/file_storage.py',
+                                show_source=True)
         file_errors = fchecker.check_all()
 
         print("Found %s errors (and warnings)" % file_errors)
+
 
 if __name__ == "__main__":
     unittest.main()

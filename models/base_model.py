@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
 Console for AirBnb Proyect
 
 PLEASE CHECK THAT: storage is instanciated at

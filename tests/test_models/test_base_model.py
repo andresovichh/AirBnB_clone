@@ -65,6 +65,7 @@ class TestBaseModel(unittest.TestCase):
     #    my_model = something()
     #    self
 
+
 class TestCodeFormat(unittest.TestCase):
     def test_pep8_conformance(self):
         # """Test that we conform to PEP8."""
@@ -78,6 +79,7 @@ class TestCodeFormat(unittest.TestCase):
         file_errors = fchecker.check_all()
 
         print("Found %s errors (and warnings)" % file_errors)
+
 
 if __name__ == "__main__":
     unittest.main()
