@@ -49,7 +49,6 @@ class FileStorage:
         #        self.__objects[key] = self.__objects[key].isoformat()
         #        print(f"{key} : {self.__objects[key]}")
         # json.dumps(self.__objects, indent=4, sort_keys=True, default=str)
-        new_dict = {}
         with open(self.__file_path, "w", encoding='utf-8') as f:
             # for obj in self.__objects.values():
             #     key = obj.__class__.__name__ +"."+ obj.id
