@@ -3,10 +3,9 @@
 """ this is the FileStorage class definition
 module
 """
+
 import json
-from datetime import datetime
 from models.amenity import Amenity
-from models.base_model import BaseModel
 from models.base_model import BaseModel
 from models.city import City
 from models.place import Place
