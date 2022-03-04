@@ -7,6 +7,7 @@ import unittest
 from unittest.mock import Base
 from models.base_model import BaseModel
 import os
+from datetime import datetime
 
 class TestBase(unittest.TestCase):
     """ initial test class"""
@@ -39,3 +40,8 @@ class TestBaseModel(unittest.TestCase):
         str_class = BaseModel()
         string = "[BaseModel] ({}) {}".format(str_class.id, str_class.__dict__)
         self.assertEqual(str(str_class), string)
+    
+    def test_save(self):
+        """ Check if save correctly updates attribute"""
+        created = BaseModel().created_at
+        self.assertEqual(created, datetime.today())
