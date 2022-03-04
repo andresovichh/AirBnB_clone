@@ -17,8 +17,8 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ Initializing BaseModel """
         self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
         if kwargs:
             for key, value in kwargs.items():
@@ -43,7 +43,7 @@ class BaseModel:
 
     def save(self):
         """ updates the public instance attribute with the current datetime """
-        self.updated_at = datetime.today()
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
