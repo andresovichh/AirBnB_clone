@@ -4,7 +4,7 @@ Console for AirBnb Proyect
 
 PLEASE CHECK THAT: storage is instanciated at
 __init__.py file located in models
- """
+"""
 
 import json
 from datetime import datetime
