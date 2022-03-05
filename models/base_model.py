@@ -35,6 +35,7 @@ class BaseModel:
                         setattr(self, key, value)
         else:
             models.storage.new(self)
+            models.storage.save()
 
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
