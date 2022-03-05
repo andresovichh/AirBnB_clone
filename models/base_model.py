@@ -16,9 +16,6 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """ Instantiation of BaseModel """
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
 
         if kwargs:
             for key, value in kwargs.items():
@@ -34,13 +31,16 @@ class BaseModel:
                     if key != "__class__":
                         setattr(self, key, value)
         else:
+            self.id = str(uuid4())
+            self.created_at = datetime.today()
+            self.updated_at = datetime.today()
             models.storage.new(self)
             models.storage.save()
 
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
-        return "[{}] ({}) {}\t".format(str(self.__class__.__name__), str(self.id),
-                                       str(self.__dict__))
+        return "[{}] ({}) {}\t".format(str(self.__class__.__name__),
+                                       str(self.id), str(self.__dict__))
 
     def save(self):
         """ updates the public instance attribute with the current datetime """
@@ -56,6 +56,3 @@ class BaseModel:
         dic["updated_at"] = self.updated_at.isoformat()
         dic["__class__"] = self.__class__.__name__
         return dic
-
-if __name__ == '__main__':
-    BaseModel()
