@@ -7,11 +7,13 @@ from models.city import City
 class Test_City(unittest.TestCase):
     """ Test State Class """
 
-    def test_name_string(self):
-        """ Test not a single character """
-        self.assertEqual(type(City().name), str)
-        """ Test id """
     def test_documentation(self):
         """documentation"""
 
         self.assertTrue(len(City.__doc__) > 0)
+
+   def test_class(self):
+       """ Test idi, name """
+        self.assertEqual(City.state_id, "")
+        self.assertEqual(City.name, "")
+        self.assertTrue(issubclass(City, BaseModel)) 
