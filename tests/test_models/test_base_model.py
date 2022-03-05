@@ -30,6 +30,11 @@ class TestBase(unittest.TestCase):
         """check if method has doc"""
 
         self.assertTrue(len(BaseModel.to_dict.__doc__) > 0)
+
+    def test_documentations2(self):
+        """check if method has doc"""
+
+        self.assertTrue(len(BaseModel.__init__.__doc__) > 0)
 # 2. Test if __str__ method prints as expected
 
 
@@ -65,6 +70,19 @@ class TestBaseModel(unittest.TestCase):
     #     """ check for non existing class"""
     #    my_model = something()
     #    self
+
+    def test_BaseModel2(self):
+        """ test if attributes are there"""
+        o = BaseModel()
+        self.assertTrue(hasattr(o, "__class__"))
+        self.assertTrue(hasattr(o, "created_at"))
+        self.assertTrue(hasattr(o, "updated_at"))
+        self.assertTrue(hasattr(o, "id"))
+
+    def test_BaseModel_w_arg(self):
+        """ test basemodel with an arg"""
+        o = BaseModel(email="holberton@gmail.com")
+        self.assertTrue(hasattr(o, "email"))
 
 
 class TestCodeFormat(unittest.TestCase):

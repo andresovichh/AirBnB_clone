@@ -7,7 +7,6 @@ __init__.py file located in models
  """
 
 from datetime import datetime
-from posixpath import basename
 from uuid import uuid4
 import models
 
@@ -16,7 +15,7 @@ class BaseModel:
     """ defines all common attributes/methods for other classes """
 
     def __init__(self, *args, **kwargs):
-        """ Initializing BaseModel """
+        """ Instantiation of BaseModel """
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
