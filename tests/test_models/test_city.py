@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """ Test City File """
+
 import unittest
+from models.base_model import BaseModel
 from models.city import City
 
 
@@ -11,9 +13,3 @@ class Test_City(unittest.TestCase):
         """documentation"""
 
         self.assertTrue(len(City.__doc__) > 0)
-
-   def test_class(self):
-       """ Test idi, name """
-        self.assertEqual(City.state_id, "")
-        self.assertEqual(City.name, "")
-        self.assertTrue(issubclass(City, BaseModel)) 
