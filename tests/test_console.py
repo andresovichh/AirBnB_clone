@@ -3,9 +3,11 @@
 """ unittest for the console"""
 
 import json
+from multiprocessing.managers import BaseManager
 import unittest
-from console import HBNBCommand
 from datetime import datetime
+from console import HBNBCommand
+
 
 
 class TestBase(unittest.TestCase):
