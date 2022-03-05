@@ -2,6 +2,7 @@
 """
 Here goes the documentation for the console module
 """
+from sre_parse import State
 from models.base_model import BaseModel
 import cmd
 import sys
@@ -10,6 +11,11 @@ from models import storage
 from models.engine.file_storage import FileStorage
 import json
 from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 # from bye import quit
 
 
@@ -21,7 +27,8 @@ class HBNBCommand(cmd.Cmd):
     file = None
 
     all_classes = {"BaseModel": BaseModel, "FileStorage": FileStorage,
-                   "User": User}
+                   "User": User, "State": State, "City": City, "Place": Place,
+                   "Amenity": Amenity, "Review": Review}
     attributes = ["updated_at", "created_at", "id"]
     specs = ["\'", "\""]
 
@@ -82,12 +89,15 @@ class HBNBCommand(cmd.Cmd):
             class_name = command[0]
             if class_name not in self.all_classes:
                 print("** class doesn't exist **")
+                return
             elif len(command) == 1:
                 print("** instance id missing **")
+                return
             else:
                 find = command[0]+"."+command[1]
                 if find not in storage.all():
                     print("** no instance found **")
+                    return
                 else:
                     objects = storage.all()
                     print(objects[find])

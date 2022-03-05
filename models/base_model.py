@@ -41,8 +41,8 @@ class BaseModel:
 
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
-        return "[{}] ({}) {}\t".format(str(self.__class__.__name__),
-                                       str(self.id), str(self.__dict__))
+        return "[{}] ({}) {}".format(str(self.__class__.__name__),
+                                     str(self.id), str(self.__dict__))
 
     def save(self):
         """ updates the public instance attribute with the current datetime """

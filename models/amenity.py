@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """
 A Amenity definition that inherits from BaseModel
 """
