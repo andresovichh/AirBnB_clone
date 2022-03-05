@@ -19,6 +19,8 @@ class BaseModel:
 
         if kwargs:
             for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = kwargs['id']
 
                 if key == 'updated_at':
                     self.updated_at = datetime.strptime(value,
