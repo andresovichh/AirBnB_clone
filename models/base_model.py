@@ -40,8 +40,8 @@ class BaseModel:
 
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__> """
-        return (str("[{:s}] ({:s}) {}\t".format(self.__class__.__name__, self.id,
-                                                self.__dict__)))
+        return "[{:s}] ({:s}) {}\t".format(self.__class__.__name__, self.id,
+                                           self.__dict__)
 
     def save(self):
         """ updates the public instance attribute with the current datetime """
@@ -57,5 +57,6 @@ class BaseModel:
         dic["updated_at"] = self.updated_at.isoformat()
         dic["__class__"] = self.__class__.__name__
         return dic
-if __name__== '__main__':
+
+if __name__ == '__main__':
     BaseModel()
