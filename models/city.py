@@ -9,7 +9,6 @@ from models.base_model import BaseModel
 
 class City(BaseModel):
     """ a class definition of City"""
-
     state_id = ""
     name = ""
 
