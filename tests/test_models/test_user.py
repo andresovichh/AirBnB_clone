@@ -11,3 +11,8 @@ class Test_User(unittest.TestCase):
         """documentation"""
 
         self.assertTrue(len(User.__doc__) > 0)
+
+        def test_documentation(self):
+            """documentation for the init method"""
+
+            self.assertTrue(len(User.__init.__doc__) > 0)

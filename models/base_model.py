@@ -4,6 +4,8 @@ Console for AirBnb Proyect
 
 PLEASE CHECK THAT: storage is instanciated at
 __init__.py file located in models
+
+>>> o = BaseModel()
  """
 
 from datetime import datetime
@@ -19,8 +21,6 @@ class BaseModel:
 
         if kwargs:
             for key, value in kwargs.items():
-                if key == 'id':
-                    self.id = kwargs['id']
 
                 if key == 'updated_at':
                     self.updated_at = datetime.strptime(value,

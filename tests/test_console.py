@@ -9,7 +9,6 @@ from datetime import datetime
 from console import HBNBCommand
 
 
-
 class TestBase(unittest.TestCase):
     """ initial test class"""
     # 1. Test if documentation present
