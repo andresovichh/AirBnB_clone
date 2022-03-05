@@ -7,6 +7,7 @@ __init__.py file located in models
  """
 
 from datetime import datetime
+from posixpath import basename
 from uuid import uuid4
 import models
 
@@ -56,3 +57,5 @@ class BaseModel:
         dic["updated_at"] = self.updated_at.isoformat()
         dic["__class__"] = self.__class__.__name__
         return dic
+if __name__== '__main__':
+    BaseModel()
