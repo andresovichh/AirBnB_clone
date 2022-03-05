@@ -13,8 +13,3 @@ class Test_Review(unittest.TestCase):
         """documentation"""
 
         self.assertTrue(len(Review.__doc__) > 0)
-
-    def test_documentation(self):
-        """documentation"""
-
-        self.assertTrue(len(Review.__init__.__doc__) > 0)

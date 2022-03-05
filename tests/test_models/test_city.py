@@ -15,8 +15,3 @@ class Test_City(unittest.TestCase):
         """documentation"""
 
         self.assertTrue(len(City.__doc__) > 0)
-
-    def test_documentation(self):
-        """documentation"""
-
-        self.assertTrue(len(City.__init__.__doc__) > 0)
