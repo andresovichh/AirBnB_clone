@@ -11,5 +11,4 @@ class User(BaseModel):
     last_name = ""
 
     def __init__(self, *args, **kwargs):
-        """ user instantiation"""
         super().__init__(*args, **kwargs)
