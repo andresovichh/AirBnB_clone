@@ -6,7 +6,6 @@ PLEASE CHECK THAT: storage is instanciated at
 __init__.py file located in models
  """
 
-import json
 from datetime import datetime
 from uuid import uuid4
 import models
@@ -14,6 +13,7 @@ import models
 
 class BaseModel:
     """ defines all common attributes/methods for other classes """
+
     def __init__(self, *args, **kwargs):
         """ Initializing BaseModel """
         self.id = str(uuid4())
