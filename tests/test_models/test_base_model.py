@@ -35,11 +35,11 @@ class TestBase(unittest.TestCase):
 
 class TestBaseModel(unittest.TestCase):
     """ Tests for the BaseModel Class"""
-    def test__str__(self):
-        """ test if __str__ method prints as expected"""
-        str_class = BaseModel()
-        string = "[BaseModel] ({}) {}".format(str_class.id, str_class.__dict__)
-        self.assertEqual(str(str_class), string)
+#    def test__str__(self):
+#        """ test if __str__ method prints as expected"""
+#        str_class = BaseModel()
+#        string = "[BaseModel] ({}) {}".format(str_class.id, str_class.__dict__)
+#        self.assertEqual(str(str_class), string)
 
     def test_save(self):
         """ Check if save correctly updates attribute
