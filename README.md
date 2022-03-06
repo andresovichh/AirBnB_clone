@@ -2,6 +2,10 @@
 
 <h1 align="center">AirBnB Clone Proyect - The Console</h1>
 
+<p1 align="center">
+By Diego Monfort & Andres Henderson
+</p>
+
 ### :computer: Introduction :computer:
 This team proyect is the first step to create our clone of the AirBnB Website.
 This first part is the **Console**, when we are going to manage objects.
