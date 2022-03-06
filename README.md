@@ -2,7 +2,7 @@
 
 <h1 align="center">AirBnB Clone Proyect - The Console</h1>
 
-<p1 align="center">
+<p align="center">
 By Diego Monfort & Andres Henderson
 </p>
 
