@@ -1,5 +1,7 @@
 ![hBnB](img/hbnblogo.png)
+<p align="center">
 # AirBnB Clone Proyect - The Console
+</p>
 
 ### :computer: Introduction :computer:
 This team proyect is the first step to create our clone of the AirBnB Website.
@@ -65,7 +67,7 @@ The basic commands to use the console are:
 | ***update*** **(class)** **(id)** **(attribute)** | Updates an instance based on the class name and id by adding or updating attribute |
 
 
-## Usage
+##  :ok_hand: Usage :ok_hand:
 
 After typing ./console.py is going to show you the prmopt "(hbnb)", this is were you are going to type your commands to manage the console.
 
@@ -107,3 +109,5 @@ EXAMPLE:
 	Input: (hbnb) all
 	Output: (hbnb) ["[BaseModel] (0cdd52b6-146d-4511-88c9-96a20f566d3e) {'id': '0cdd52b6-146d-4511-88c9-96a20f566d3e', 'created_at': datetime.datetime(2022, 3, 5, 10, 26, 46, 881124), 'updated_at': datetime.datetime(2022, 3, 5, 10, 26, 46, 881421), 'name': 'My First Model', 'my_number': 89}", ..., ...., ....
 ```
+
+
