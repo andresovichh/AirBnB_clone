@@ -1,7 +1,6 @@
 ![hBnB](img/hbnblogo.png)
-<p align="center">
-# AirBnB Clone Proyect - The Console
-</p>
+
+<h1 align="center">AirBnB Clone Proyect - The Console</h1>
 
 ### :computer: Introduction :computer:
 This team proyect is the first step to create our clone of the AirBnB Website.
