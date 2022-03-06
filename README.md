@@ -69,19 +69,29 @@ The basic commands to use the console are:
 
 After typing ./console.py is going to show you the prmopt "(hbnb)", this is were you are going to type your commands to manage the console.
 
-- To create a new object just type **create** "Class_Name", if the class name is valid it would create a New object and print it's id.
+- To create a new instance just type **create** (class), if the class name is valid it would create a new instance and print it's id.
 ```
 EXAMPLE:
 	Input: (hbnb) create User
 	Output: (hbnb) 9922284e-208c-42e6-ad39-e49075d007cb
 ```
-- To Print the string representation of the instance type **show** "Class_name" "id"
+- To Print the string representation of the instance type **show** (class) (id)
 ```
 EXAMPLE:
 	Input: (hbnb) show User 9922284e-208c-42e6-ad39-e49075d007cb
 	Output: (hbnb) [User] (9922284e-208c-42e6-ad39-e49075d007cb) {'id': '9922284e-208c-42e6-ad39-e49075d007cb', 'created_at': datetime.datetime(2022, 3, 6, 9, 29, 7, 491528), 'updated_at': datetime.datetime(2022, 3, 6, 9, 29, 7, 492172)}
 ```
-
-
+- If you want to delate an instance, in this case a User, type **destroy** (class) (id)
+```
+EXAMPLE:
+	Input: (hbnb) destroy User 9922284e-208c-42e6-ad39-e49075d007cb
+	Output: (hbnb) 
+```
+- You can update the instance you want by adding any attribute just typing **update** (class) (id) (attribute)
+```
+EXAMPLE
+	Input: (hbnb) update User 9922284e-208c-42e6-ad39-e49075d007cb email "userexample@gmail.com"
+	Output: (hbnb) show User 9922284e-208c-42e6-ad39-e49075d007cb
+	        (hbnb) [User] (9922284e-208c-42e6-ad39-e49075d007cb) {'id': '9922284e-208c-42e6-ad39-e49075d007cb', 'created_at': datetime.datetime(2022, 3, 6, 9, 29, 7, 491528), 'updated_at': datetime.datetime(2022, 3, 6, 9, 29, 7, 492172), 'email': 'userexample@gmail.com'}
 
 
