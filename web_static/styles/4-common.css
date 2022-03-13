@@ -1,18 +1,15 @@
 
-  
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    color: #484848;
-    font-size: 14px;
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
 
-    width: 100%;
-    max-width: 1000px;
-    margin-top: 30px;
-  }
+  
+body {
+    margin:0;
+    padding:0;
+    color:#484848;
+    font-size:14px;
+    font-family:Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+div.container {
+    max-width:1000px;
+    margin:30px auto;
+}
