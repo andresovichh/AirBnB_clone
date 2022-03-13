@@ -7,5 +7,7 @@ footer {
     bottom: 0;
 }
 footer p {
-    
-}
+    text-align: center;
+    margin: center;
+    color: black;
+    }
