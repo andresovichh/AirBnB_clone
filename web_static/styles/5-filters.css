@@ -9,8 +9,8 @@
     justify-content: center;
 }
 
-.locations,
-.amenities {
+div.locations,
+div.amenities {
     margin-left: 5%;
     height: 100%;
     width: 25%;
@@ -19,13 +19,11 @@
 .filters h3
 {
     font-weight: 600;
-
     margin-bottom: 0;
 }
 .filters h4{
     font-weight: 400;
     font-size: 14px;
-
     margin-top: 0;
 }
 
@@ -41,7 +39,7 @@
     border-width: none;
     border-style: none;
     border-radius: 4px;
-    padding: auto 30px auto auto;
+    margin: auto 30px auto auto;
 }
 button:hover{
     opacity: 0.9;
